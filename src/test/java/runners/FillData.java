@@ -11,6 +11,5 @@ import org.junit.runner.RunWith;
         glue = {"stepdefinitions"}
 )
 public class FillData   {
-    String inputFilePath = "src\\test\\resources\\input.xlsx";
-    String outputFilePath = "src\\test\\resources\\output.xlsx";
+
 }

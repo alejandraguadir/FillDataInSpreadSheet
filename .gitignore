@@ -1,3 +1,7 @@
 #Serenity
 *target/
 *screenplayrest/target/
+
+#Gradle
+*/gradle/
+*/build/
