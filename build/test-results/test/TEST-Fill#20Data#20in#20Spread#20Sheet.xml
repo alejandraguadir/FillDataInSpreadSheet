@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Fill Data in Spread Sheet" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-26T17:36:04" hostname="DESKTOP-4V0UC4E" time="2.078">
+<testsuite name="Fill Data in Spread Sheet" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-26T18:16:45" hostname="DESKTOP-4V0UC4E" time="2.579">
   <properties/>
-  <testcase name="Fill Data in Spread Sheet" classname="Fill Data in Spread Sheet" time="2.078"/>
-  <system-out><![CDATA[12:36:05.131 [Test worker] INFO io.cucumber.core.plugin.SerenityReporter - Running feature from file:///D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/features/fill_data.feature
-12:36:05.131 [Test worker] WARN io.cucumber.core.plugin.SerenityReporter - Feature from file:///D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/features/fill_data.feature is not under the 'features' directory. Requirements report will not be correctly generated!
-12:36:05.277 [Test worker] INFO  - 
+  <testcase name="Fill Data in Spread Sheet" classname="Fill Data in Spread Sheet" time="2.579"/>
+  <system-out><![CDATA[13:16:45.846 [Test worker] INFO io.cucumber.core.plugin.SerenityReporter - Running feature from file:///D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/features/fill_data.feature
+13:16:45.846 [Test worker] WARN io.cucumber.core.plugin.SerenityReporter - Feature from file:///D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/features/fill_data.feature is not under the 'features' directory. Requirements report will not be correctly generated!
+13:16:45.935 [Test worker] INFO  - 
  _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
 |_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
   | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
@@ -13,13 +13,10 @@
 
 Fill Data in Spread Sheet(fill-data-in-spread-sheet;fill-data-in-spread-sheet)
 -------------------------------------------------------------------
-12:36:05.390 [Test worker] DEBUG net.thucydides.core.requirements.model.cucumber.CucumberParser - Added feature Fill Data in Spread Sheet
-12:36:05.888 [Test worker] DEBUG net.thucydides.core.steps.StepInterceptor - STARTING STEP: FillDataStepDefinitions.theUserUploadTheData - performAs
-D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/input.xlsx
-D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/output.xlsx
-Sheet1
-12:36:07.038 [Test worker] DEBUG net.thucydides.core.steps.StepInterceptor - STEP DONE: performAs
-12:36:07.058 [Test worker] INFO  - 
+13:16:46.016 [Test worker] DEBUG net.thucydides.core.requirements.model.cucumber.CucumberParser - Added feature Fill Data in Spread Sheet
+13:16:46.523 [Test worker] DEBUG net.thucydides.core.steps.StepInterceptor - STARTING STEP: FillDataStepDefinitions.theUserUploadTheData - performAs
+13:16:48.286 [Test worker] DEBUG net.thucydides.core.steps.StepInterceptor - STEP DONE: performAs
+13:16:48.303 [Test worker] INFO  - 
         __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
   _     \ \  |_   _| ____/ ___|_   _| |  _ \ / \  / ___|/ ___|| ____|  _ \ 
  (_)_____| |   | | |  _| \___ \ | |   | |_) / _ \ \___ \\___ \|  _| | | | |

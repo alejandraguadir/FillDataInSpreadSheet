@@ -2,10 +2,7 @@ package com.automation.task;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
@@ -17,46 +14,27 @@ import java.util.List;
 public class ExcelDuplicator implements Task {
 
     private String filePath;
-    private String sheetName;
     private String outputFilePath;
     private Workbook workbook;
-    private Sheet sheet;
 
     public ExcelDuplicator() {
         this.filePath = System.getenv("INPUT_FILE");
-        this.sheetName = System.getenv("EXCEL_SHEET");
         this.outputFilePath = System.getenv("OUTPUT_FILE");
     }
 
     public void loadWorkbook() throws IOException {
         try (FileInputStream fis = new FileInputStream(filePath)) {
             this.workbook = new XSSFWorkbook(fis);
-            if (sheetName != null && !sheetName.isEmpty()) {
-                this.sheet = workbook.getSheet(sheetName);
-            } else {
-                this.sheet = workbook.getSheetAt(0);
-            }
         }
     }
 
     public List<List<Object>> readSheet() {
         List<List<Object>> data = new ArrayList<>();
+        Sheet sheet = workbook.getSheetAt(0); // Assuming only one sheet is used
         for (Row row : sheet) {
             List<Object> rowData = new ArrayList<>();
             for (Cell cell : row) {
-                switch (cell.getCellType()) {
-                    case STRING:
-                        rowData.add(cell.getStringCellValue());
-                        break;
-                    case NUMERIC:
-                        rowData.add(cell.getNumericCellValue());
-                        break;
-                    case BOOLEAN:
-                        rowData.add(cell.getBooleanCellValue());
-                        break;
-                    default:
-                        rowData.add(null);
-                }
+                rowData.add(getCellValue(cell));
             }
             data.add(rowData);
         }
@@ -64,28 +42,45 @@ public class ExcelDuplicator implements Task {
     }
 
     public void duplicateData(List<List<Object>> data) {
-        int maxRow = sheet.getLastRowNum() + 1;
-        int maxCol = sheet.getRow(0).getLastCellNum();
-        int dataIndex = 0;
+        Sheet sheet = workbook.getSheetAt(0); // Hoja de cálculo de entrada
 
-        for (int rowIndex = 0; rowIndex < maxRow; rowIndex++) {
-            Row row = sheet.getRow(rowIndex);
-            if (row == null) {
-                row = sheet.createRow(rowIndex);
-            }
-            for (int colIndex = 0; colIndex < maxCol; colIndex++) {
-                Cell cell = row.getCell(colIndex);
-                if (cell == null) {
-                    cell = row.createCell(colIndex);
+        // Obtener la última fila en la hoja de cálculo de salida
+        int lastRowNum = sheet.getLastRowNum();
+
+        // Duplicar los datos hasta que la última fila de la hoja de cálculo de salida llegue a la fila 1048575
+        while (lastRowNum < 1000) { // Última fila - 1
+            Row lastRow = sheet.getRow(lastRowNum);
+            Row newRow = sheet.createRow(lastRowNum + 1); // Crear una nueva fila después de la última fila
+            for (int i = 0; i < lastRow.getLastCellNum(); i++) {
+                Cell lastCell = lastRow.getCell(i);
+                Cell newCell = newRow.createCell(i);
+                if (lastCell != null) {
+                    Object cellValue = getCellValue(lastCell);
+                    // Conversión explícita de tipo
+                    if (cellValue instanceof String) {
+                        newCell.setCellValue((String) cellValue);
+                    } else if (cellValue instanceof Double) {
+                        newCell.setCellValue((Double) cellValue);
+                    } else if (cellValue instanceof Boolean) {
+                        newCell.setCellValue((Boolean) cellValue);
+                    }
                 }
-                List<Object> rowData = data.get(dataIndex / maxCol);
-                Object value = rowData.get(dataIndex % maxCol);
-                setCellValue(cell, value);
-                dataIndex++;
-                if (dataIndex >= data.size() * maxCol) {
-                    dataIndex = 0;
-                }
             }
+            lastRowNum++;
+        }
+    }
+
+
+    private Object getCellValue(Cell cell) {
+        switch (cell.getCellType()) {
+            case STRING:
+                return cell.getStringCellValue();
+            case NUMERIC:
+                return cell.getNumericCellValue();
+            case BOOLEAN:
+                return cell.getBooleanCellValue();
+            default:
+                return null;
         }
     }
 
@@ -109,12 +104,6 @@ public class ExcelDuplicator implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-
-        System.out.println(filePath);
-        System.out.println(outputFilePath);
-        System.out.println(sheetName);
-
-        // Cargar la hoja de cálculo y duplicar los datos
         try {
             loadWorkbook();
             List<List<Object>> data = readSheet();
@@ -123,14 +112,10 @@ public class ExcelDuplicator implements Task {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public static ExcelDuplicator excelDuplicator() {
         return new ExcelDuplicator();
     }
 }
-
-
 
