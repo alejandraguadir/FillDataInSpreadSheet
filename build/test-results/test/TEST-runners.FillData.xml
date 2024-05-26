@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="runners.FillData" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="DESKTOP-4V0UC4E" time="0.0">
   <properties/>
-  <system-out><![CDATA[13:16:44.667 [Test worker] WARN io.cucumber.junit.CucumberSerenityRunner - By default Cucumber is running in --non-strict mode.
+  <system-out><![CDATA[13:42:12.492 [Test worker] WARN io.cucumber.junit.CucumberSerenityRunner - By default Cucumber is running in --non-strict mode.
 This default will change to --strict and --non-strict will be removed.
 You can use --strict or @CucumberOptions(strict = true) to suppress this warning
-13:16:45.424 [Test worker] INFO io.cucumber.core.plugin.SerenityReporter - Running feature from file:///D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/features/fill_data.feature
-13:16:45.424 [Test worker] WARN io.cucumber.core.plugin.SerenityReporter - Feature from file:///D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/features/fill_data.feature is not under the 'features' directory. Requirements report will not be correctly generated!
-13:16:45.699 [Test worker] INFO  - 
+13:42:13.183 [Test worker] INFO io.cucumber.core.plugin.SerenityReporter - Running feature from file:///D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/features/fill_data.feature
+13:42:13.184 [Test worker] WARN io.cucumber.core.plugin.SerenityReporter - Feature from file:///D:/7.AUTOMATION/FillDataInSpreadSheet/src/test/resources/features/fill_data.feature is not under the 'features' directory. Requirements report will not be correctly generated!
+13:42:13.427 [Test worker] INFO  - 
 
 -------------------------------------------------------------------------------------
      _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
@@ -22,37 +22,37 @@ You can use --strict or @CucumberOptions(strict = true) to suppress this warning
  Serenity BDD Support and Training at http://serenity-bdd.info/#/trainingandsupport  
 -------------------------------------------------------------------------------------
 
-13:16:45.704 [Test worker] DEBUG net.thucydides.core.steps.StepEventBus - Test suite started for story net.thucydides.core.model.Story@e7394056
-13:16:45.709 [Test worker] INFO  - Test Suite Started: Fill Data in Spread Sheet
+13:42:13.432 [Test worker] DEBUG net.thucydides.core.steps.StepEventBus - Test suite started for story net.thucydides.core.model.Story@e7394056
+13:42:13.435 [Test worker] INFO  - Test Suite Started: Fill Data in Spread Sheet
 
 1 Scenarios (?[32m1 passed?[0m)
 3 Steps (?[32m3 passed?[0m)
-0m2,883s
+0m4,762s
 
 
-13:16:48.311 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Reporting formats: [JSON, HTML]
-13:16:48.388 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Reporting formats: [JSON, HTML]
-13:16:48.398 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Generating reports for 1 test outcomes using: net.thucydides.core.reports.json.JSONTestOutcomeReporter@5faeeb56
-13:16:48.399 [pool-1-thread-1] DEBUG net.thucydides.core.reports.ReportService - Processing test outcome Fill Data in Spread Sheet:Fill Data in Spread Sheet
-13:16:48.400 [pool-1-thread-1] DEBUG net.thucydides.core.reports.ReportService - net.thucydides.core.reports.json.JSONTestOutcomeReporter@5faeeb56: Generating report for test outcome: Fill Data in Spread Sheet:Fill Data in Spread Sheet
-13:16:48.415 [pool-1-thread-1] DEBUG net.thucydides.core.reports.json.JSONTestOutcomeReporter - Generating JSON report for Fill Data in Spread Sheet to file D:\7.AUTOMATION\FillDataInSpreadSheet\target\site\serenity\d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.json (using temp file D:\7.AUTOMATION\FillDataInSpreadSheet\target\site\serenity\d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.jsone070113e-f97b-4f7f-9c02-a2f9ba4efd24)
-13:16:48.450 [pool-1-thread-1] DEBUG net.thucydides.core.reports.ReportService - Processing test outcome Fill Data in Spread Sheet:Fill Data in Spread Sheet done
-13:16:48.450 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Shutting down executor service
-13:16:48.450 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Reports generated in: 52 ms
-13:16:48.451 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Generating reports for 1 test outcomes using: net.thucydides.core.reports.html.HtmlAcceptanceTestReporter@96abc76
-13:16:48.451 [pool-2-thread-1] DEBUG net.thucydides.core.reports.ReportService - Processing test outcome Fill Data in Spread Sheet:Fill Data in Spread Sheet
-13:16:48.451 [pool-2-thread-1] DEBUG net.thucydides.core.reports.ReportService - net.thucydides.core.reports.html.HtmlAcceptanceTestReporter@96abc76: Generating report for test outcome: Fill Data in Spread Sheet:Fill Data in Spread Sheet
-13:16:48.453 [pool-2-thread-1] DEBUG net.thucydides.core.reports.html.HtmlAcceptanceTestReporter - GENERATE TEST OUTCOME REPORT FOR Fill Data in Spread Sheet in d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6
-13:16:48.479 [pool-2-thread-1] DEBUG net.thucydides.core.requirements.model.cucumber.CucumberParser - Added feature Fill Data in Spread Sheet
-13:16:48.481 [pool-2-thread-1] DEBUG net.thucydides.core.requirements.RequirementsTagProvider -  found:[Requirement{name='Fill Data in Spread Sheet', type='feature' parent = 'null', cardNumber='null'}]
-13:16:48.490 [pool-2-thread-1] DEBUG net.thucydides.core.requirements.BaseRequirementsService - Requirement found for test outcome Fill Data in Spread Sheet-[]: Optional[Requirement{name='Fill Data in Spread Sheet', type='feature' parent = 'null', cardNumber='null'}]
-13:16:48.492 [pool-2-thread-1] DEBUG net.thucydides.core.requirements.BaseRequirementsService - Requirement found for test outcome Fill Data in Spread Sheet-[]: Optional[Requirement{name='Fill Data in Spread Sheet', type='feature' parent = 'null', cardNumber='null'}]
-13:16:48.583 [pool-2-thread-1] DEBUG net.thucydides.core.reports.html.HtmlAcceptanceTestReporter - GENERATING HTML REPORT FOR Fill Data in Spread Sheet:Fill Data in Spread Sheet in d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.html in directory target\site\serenity  
-13:16:48.586 [pool-2-thread-1] DEBUG net.thucydides.core.reports.html.HtmlAcceptanceTestReporter - Generating report in d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.html
-13:16:49.095 [pool-2-thread-1] DEBUG net.thucydides.core.reports.html.HtmlAcceptanceTestReporter - Generated report d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.html in 509 ms
-13:16:49.096 [pool-2-thread-1] DEBUG net.thucydides.core.reports.ReportService - Processing test outcome Fill Data in Spread Sheet:Fill Data in Spread Sheet done
-13:16:49.096 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Shutting down executor service
-13:16:49.096 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Reports generated in: 645 ms
+13:42:17.952 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Reporting formats: [JSON, HTML]
+13:42:18.060 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Reporting formats: [JSON, HTML]
+13:42:18.073 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Generating reports for 1 test outcomes using: net.thucydides.core.reports.json.JSONTestOutcomeReporter@6b9c42bd
+13:42:18.075 [pool-1-thread-1] DEBUG net.thucydides.core.reports.ReportService - Processing test outcome Fill Data in Spread Sheet:Fill Data in Spread Sheet
+13:42:18.076 [pool-1-thread-1] DEBUG net.thucydides.core.reports.ReportService - net.thucydides.core.reports.json.JSONTestOutcomeReporter@6b9c42bd: Generating report for test outcome: Fill Data in Spread Sheet:Fill Data in Spread Sheet
+13:42:18.091 [pool-1-thread-1] DEBUG net.thucydides.core.reports.json.JSONTestOutcomeReporter - Generating JSON report for Fill Data in Spread Sheet to file D:\7.AUTOMATION\FillDataInSpreadSheet\target\site\serenity\d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.json (using temp file D:\7.AUTOMATION\FillDataInSpreadSheet\target\site\serenity\d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.json17294100-c508-45ed-aba0-fc03895fc42e)
+13:42:18.127 [pool-1-thread-1] DEBUG net.thucydides.core.reports.ReportService - Processing test outcome Fill Data in Spread Sheet:Fill Data in Spread Sheet done
+13:42:18.127 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Shutting down executor service
+13:42:18.128 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Reports generated in: 54 ms
+13:42:18.128 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Generating reports for 1 test outcomes using: net.thucydides.core.reports.html.HtmlAcceptanceTestReporter@3360283
+13:42:18.129 [pool-2-thread-1] DEBUG net.thucydides.core.reports.ReportService - Processing test outcome Fill Data in Spread Sheet:Fill Data in Spread Sheet
+13:42:18.129 [pool-2-thread-1] DEBUG net.thucydides.core.reports.ReportService - net.thucydides.core.reports.html.HtmlAcceptanceTestReporter@3360283: Generating report for test outcome: Fill Data in Spread Sheet:Fill Data in Spread Sheet
+13:42:18.130 [pool-2-thread-1] DEBUG net.thucydides.core.reports.html.HtmlAcceptanceTestReporter - GENERATE TEST OUTCOME REPORT FOR Fill Data in Spread Sheet in d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6
+13:42:18.153 [pool-2-thread-1] DEBUG net.thucydides.core.requirements.model.cucumber.CucumberParser - Added feature Fill Data in Spread Sheet
+13:42:18.154 [pool-2-thread-1] DEBUG net.thucydides.core.requirements.RequirementsTagProvider -  found:[Requirement{name='Fill Data in Spread Sheet', type='feature' parent = 'null', cardNumber='null'}]
+13:42:18.162 [pool-2-thread-1] DEBUG net.thucydides.core.requirements.BaseRequirementsService - Requirement found for test outcome Fill Data in Spread Sheet-[]: Optional[Requirement{name='Fill Data in Spread Sheet', type='feature' parent = 'null', cardNumber='null'}]
+13:42:18.164 [pool-2-thread-1] DEBUG net.thucydides.core.requirements.BaseRequirementsService - Requirement found for test outcome Fill Data in Spread Sheet-[]: Optional[Requirement{name='Fill Data in Spread Sheet', type='feature' parent = 'null', cardNumber='null'}]
+13:42:18.278 [pool-2-thread-1] DEBUG net.thucydides.core.reports.html.HtmlAcceptanceTestReporter - GENERATING HTML REPORT FOR Fill Data in Spread Sheet:Fill Data in Spread Sheet in d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.html in directory target\site\serenity  
+13:42:18.283 [pool-2-thread-1] DEBUG net.thucydides.core.reports.html.HtmlAcceptanceTestReporter - Generating report in d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.html
+13:42:18.857 [pool-2-thread-1] DEBUG net.thucydides.core.reports.html.HtmlAcceptanceTestReporter - Generated report d3e388eabbafe23a10e024ef733329279be5c624bbb56338d07ba9f034e8aac6.html in 574 ms
+13:42:18.857 [pool-2-thread-1] DEBUG net.thucydides.core.reports.ReportService - Processing test outcome Fill Data in Spread Sheet:Fill Data in Spread Sheet done
+13:42:18.858 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Shutting down executor service
+13:42:18.858 [Test worker] DEBUG net.thucydides.core.reports.ReportService - Reports generated in: 730 ms
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

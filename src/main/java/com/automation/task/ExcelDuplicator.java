@@ -41,32 +41,33 @@ public class ExcelDuplicator implements Task {
         return data;
     }
 
-    public void duplicateData(List<List<Object>> data) {
+    public void duplicateData(List<List<Object>> data, int totalRowsToPopulate) {
         Sheet sheet = workbook.getSheetAt(0); // Hoja de cálculo de entrada
+        int numRowsInput = data.size(); // Número de filas en el conjunto de datos de entrada
+        int numRowsOutput = sheet.getLastRowNum() + 1; // Número de filas actualmente en la hoja de cálculo de salida
+        int numRowsToAdd = totalRowsToPopulate - numRowsOutput; // Número de filas a agregar a la hoja de cálculo de salida
 
-        // Obtener la última fila en la hoja de cálculo de salida
-        int lastRowNum = sheet.getLastRowNum();
-
-        // Duplicar los datos hasta que la última fila de la hoja de cálculo de salida llegue a la fila 1048575
-        while (lastRowNum < 1000) { // Última fila - 1
-            Row lastRow = sheet.getRow(lastRowNum);
-            Row newRow = sheet.createRow(lastRowNum + 1); // Crear una nueva fila después de la última fila
-            for (int i = 0; i < lastRow.getLastCellNum(); i++) {
-                Cell lastCell = lastRow.getCell(i);
-                Cell newCell = newRow.createCell(i);
-                if (lastCell != null) {
-                    Object cellValue = getCellValue(lastCell);
-                    // Conversión explícita de tipo
-                    if (cellValue instanceof String) {
-                        newCell.setCellValue((String) cellValue);
-                    } else if (cellValue instanceof Double) {
-                        newCell.setCellValue((Double) cellValue);
-                    } else if (cellValue instanceof Boolean) {
-                        newCell.setCellValue((Boolean) cellValue);
+        while (numRowsToAdd > 0) {
+            for (int i = 0; i < numRowsInput && numRowsToAdd > 0; i++) {
+                Row inputRow = sheet.getRow(i); // Obtener la fila del conjunto de datos de entrada
+                Row newRow = sheet.createRow(numRowsOutput++); // Crear una nueva fila en la hoja de cálculo de salida
+                for (int j = 0; j < inputRow.getLastCellNum(); j++) {
+                    Cell inputCell = inputRow.getCell(j); // Obtener la celda de la fila del conjunto de datos de entrada
+                    Cell newCell = newRow.createCell(j); // Crear una nueva celda en la fila de salida
+                    if (inputCell != null) {
+                        Object cellValue = getCellValue(inputCell);
+                        // Conversión explícita de tipo
+                        if (cellValue instanceof String) {
+                            newCell.setCellValue((String) cellValue);
+                        } else if (cellValue instanceof Double) {
+                            newCell.setCellValue((Double) cellValue);
+                        } else if (cellValue instanceof Boolean) {
+                            newCell.setCellValue((Boolean) cellValue);
+                        }
                     }
                 }
+                numRowsToAdd--;
             }
-            lastRowNum++;
         }
     }
 
@@ -107,7 +108,9 @@ public class ExcelDuplicator implements Task {
         try {
             loadWorkbook();
             List<List<Object>> data = readSheet();
-            duplicateData(data);
+            // Obtener la cantidad de filas a poblar de una variable de entorno llamada "NUM_ROWS_TO_POPULATE"
+            int totalRowsToPopulate = Integer.parseInt(System.getenv("NUM_ROWS"));
+            duplicateData(data, totalRowsToPopulate);
             saveWorkbook();
         } catch (IOException e) {
             e.printStackTrace();
@@ -118,4 +121,3 @@ public class ExcelDuplicator implements Task {
         return new ExcelDuplicator();
     }
 }
-
