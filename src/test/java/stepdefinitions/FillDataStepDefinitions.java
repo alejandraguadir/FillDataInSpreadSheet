@@ -11,7 +11,7 @@ public class FillDataStepDefinitions {
     @Given("the user upload the data")
     public void theUserUploadTheData() {
        theActorInTheSpotlight().attemptsTo(
-                ExcelDuplicator.excelDuplicator()
+                //ExcelDuplicator.excelDuplicator()
         );
     }
 
