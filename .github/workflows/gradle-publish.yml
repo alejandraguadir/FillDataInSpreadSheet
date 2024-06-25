@@ -5,9 +5,9 @@ on:
     types: [created]
 env:
   EXCEL_SHEET: "Sheet1"
-  INPUT_FILE: "file:///home/runner/work/FillDataInSpreadSheet/FillDataInSpreadSheet/FillDataInSpreadSheet/src/test/resources/input.xlsx"
+  INPUT_FILE: "file:/home/runner/work/FillDataInSpreadSheet/src/test/resources/input.xlsx"
   NUM_ROWS: "10"
-  OUTPUT_FILE: "file:///home/runner/work/FillDataInSpreadSheet/FillDataInSpreadSheet/FillDataInSpreadSheet/src/test/resources/output.xlsx"
+  OUTPUT_FILE: "file:/home/runner/work/FillDataInSpreadSheet/src/test/resources/output.xlsx"
 
 jobs:
   build:
