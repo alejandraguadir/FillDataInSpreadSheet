@@ -3,6 +3,11 @@ name: pipeline_test
 on:
   release:
     types: [created]
+env:
+  EXCEL_SHEET: "Sheet1"
+  INPUT_FILE: "FillDataInSpreadSheet/src/test/resources/input.xlsx"
+  NUM_ROWS: "10"
+  OUTPUT_FILE: "FillDataInSpreadSheet/src/test/resources/output.xlsx"
 
 jobs:
   build:
