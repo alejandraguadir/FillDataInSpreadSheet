@@ -3,15 +3,15 @@ name: pipeline_test
 on:
   release:
     types: [created]
+
 env:
   EXCEL_SHEET: "Sheet1"
-  INPUT_FILE: "file:/home/runner/work/FillDataInSpreadSheet/src/test/resources/input.xlsx"
+  INPUT_FILE: "src/test/resources/input.xlsx"
   NUM_ROWS: "10"
-  OUTPUT_FILE: "file:/home/runner/work/FillDataInSpreadSheet/src/test/resources/output.xlsx"
+  OUTPUT_FILE: "src/test/resources/output.xlsx"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -37,10 +37,13 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
-    # the publishing section of your build.gradle
     - name: Publish to GitHub Packages
-      run: ./gradlew publish
+      run: |
+        ./gradlew publish
       env:
         USERNAME: ${{ github.actor }}
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        EXCEL_SHEET: ${{ env.EXCEL_SHEET }}
+        INPUT_FILE: ${{ env.INPUT_FILE }}
+        NUM_ROWS: ${{ env.NUM_ROWS }}
+        OUTPUT_FILE: ${{ env.OUTPUT_FILE }}
